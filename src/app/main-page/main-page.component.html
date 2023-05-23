@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Previsão do Tempo</h1>
+  <div class="form-group">
+    <label for="city-select">Selecione uma cidade:</label>
+    <select id="city-select" class="form-control" (change)="getWeather()">
+      <option value="Colatina">Colatina</option>
+      <option value="Belo Horizonte">Belo Horizonte</option>
+      <option value="Rio de Janeiro">Rio de Janeiro</option>
+      <option value="São Paulo">São Paulo</option>
+    </select>
+  </div>
+  <div *ngIf="weatherData">
+    <h2>Temperatura Atual: {{ weatherData.currentTemp }}°C</h2>
+    <h3>Previsão para os próximos 4 dias:</h3>
+    <ul>
+      <li *ngFor="let forecast of weatherData.forecast">{{ forecast.date }} - {{ forecast.temperature }}°C</li>
+    </ul>
+  </div>
+</div>
